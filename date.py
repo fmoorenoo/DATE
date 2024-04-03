@@ -3,15 +3,16 @@ from __future__ import annotations
 
 class Date:
     def __init__(self, day: int, month: int, year: int):
-        self.day = day
-        self.month = month
-        self.year = year
         if day <= 0 or day > 31:
             day = 1
         if month <= 0 or month > 12:
             month = 1
         if year < 1900 or year > 2050:
             year = 1900
+            
+        self.day = day
+        self.month = month
+        self.year = year
 
 
     @staticmethod
@@ -56,7 +57,7 @@ class Date:
 
     @property
     def is_weekend(self) -> bool:
-        if self.weekday > 5:
+        if self.weekday == 6 or self.weekday == 0:
             return True
         else:
             return False
